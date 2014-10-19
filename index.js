@@ -1,14 +1,17 @@
-var express = require('express')
+
+var express = require('express');
 var app = express();
 var pg = require('pg');
+var view = require('fs')
+
 
 app.set('port', (process.env.PORT || 5000))
+
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('Hello World!')
+  response.render('index.ejs');
 })
-
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -17,7 +20,10 @@ app.get('/db', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { response.send(result.rows); }
+       { 
+        var a = result.rows;
+        response.render('db.ejs'); 
+      }
     });
   });
 })
