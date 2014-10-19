@@ -1,0 +1,19 @@
+{
+  "name": "Blogger",
+  "version": "1.0.0",
+  "description": "use express and PostGreSQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luyaochi/Blogger_Express_PostGreSQl.git"
+  },
+  "author": "luyaochi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luyaochi/Blogger_Express_PostGreSQl/issues"
+  },
+  "homepage": "https://github.com/luyaochi/Blogger_Express_PostGreSQl"
+}
