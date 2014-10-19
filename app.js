@@ -6,7 +6,7 @@ var view = require('fs')
 
 
 app.set('port', (process.env.PORT || 5000))
-
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
@@ -22,7 +22,7 @@ app.get('/db', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.render('db.ejs'); 
+        response.render('db.ejs',{data : a}); 
       }
     });
   });
