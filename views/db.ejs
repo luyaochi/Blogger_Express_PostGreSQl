@@ -1,2 +1,47 @@
-fadsfdsf
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<p>
+fadsfdsf<br>	
 <%= data %>
+</p>
+
+<button>insert</button>
+<button>delete</button>
+<input type="text" name="id">
+<input type="text" name="title">
+<input type="text" name="name">
+<input type="text" name="content">
+<button>update</button>
+<script>
+
+$.get('/db/read')
+.success(function(data, status, headers, config){
+	if(data && data.length>1) {
+		sessionService.set('uid',data);
+		$location.path('/receive');
+	}
+	else {
+		$location.path('/');
+		scope.msgtxt = '錯誤的帳號或密碼';
+		console.log(user);
+		console.log(data);
+
+		
+	}
+})
+.error(function(data, status, headers, config){
+		console.log(data);
+		console.log(status);
+		console.log(headers);
+		console.log(config);
+		console.log('error');
+	});
+
+}
+$.post('/db/create').success();
+$.post('/db/update').success();
+$.post('/db/delete').success();
+
+
+
+</script>

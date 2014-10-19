@@ -10,7 +10,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.render('index.ejs',{'data':'testing data'});
+  var a = {'1':'testing data','2':'data2'};
+  response.render('index.ejs',{'data':a['1']});
 })
 
 app.get('/db', function (request, response) {
