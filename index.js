@@ -29,6 +29,81 @@ app.get('/db', function (request, response) {
   });
 })
 
+
+app.post('/db/create', function (request, response) {
+  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+    client.query('SELECT * FROM blogger_table;', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { 
+        var a = result.rows;
+        response.render('db.ejs',{'data' : a}); 
+      }
+    });
+  });
+  console.log('create');
+
+});
+
+app.get('/db/read', function (request, response) {
+  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+    client.query('SELECT * FROM blogger_table;', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { 
+        var a = result.rows;
+        response.render('db.ejs',{'data' : a}); 
+      }
+    });
+  });
+  console.log('read');
+
+});
+
+app.post('/db/update', function (request, response) {
+  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+    client.query('SELECT * FROM blogger_table;', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { 
+        var a = result.rows;
+        response.render('db.ejs',{'data' : a}); 
+      }
+    });
+  });
+  console.log('update');
+
+});
+
+app.post('/db/delete', function (request, response) {
+  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+    client.query('SELECT * FROM blogger_table;', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { 
+        var a = result.rows;
+        response.render('db.ejs',{'data' : a}); 
+      }
+    });
+  });
+  console.log('delete');
+
+});
+
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+});
+
+
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 })
