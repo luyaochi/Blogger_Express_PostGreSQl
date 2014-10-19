@@ -5,42 +5,78 @@ fadsfdsf<br>
 <%= data %>
 </p>
 
-<button>insert</button>
-<button>delete</button>
-<input type="text" name="id">
-<input type="text" name="title">
-<input type="text" name="name">
-<input type="text" name="content">
-<button>update</button>
+<button id="creatw">create</button>
+<button id="read">read</button>
+
+<input id="id" type="text" name="id">
+<input id="title"  type="text" name="title">
+<input id="name" type="text" name="name">
+<input id="content" type="text" name="content">
+
+<button id="update">update</button>
+
+<button id="delete">delete</button>
+
 <script>
 
-$.get('/db/read')
-.success(function(data, status, headers, config){
-	if(data && data.length>1) {
-		sessionService.set('uid',data);
-		$location.path('/receive');
-	}
-	else {
-		$location.path('/');
-		scope.msgtxt = '錯誤的帳號或密碼';
-		console.log(user);
-		console.log(data);
+$('#create').click(create());
+$('#read').click(read());
+$('#update').click(update());
+$('#delete').click(ddelete());
 
-		
-	}
-})
-.error(function(data, status, headers, config){
+
+
+
+
+var create = function(){
+	$.post('/db/create').success().error();
+	console.log('create');
+};
+
+var read = function(){
+	$.get('/db/read')
+	.success(function(data, status, headers, config){
+		if(data && data.length>1) {
+			sessionService.set('uid',data);
+			$location.path('/receive');
+		}
+		else {
+			$location.path('/');
+			scope.msgtxt = '錯誤的帳號或密碼';
+			console.log(user);
+			console.log(data);
+
+			
+		}
+	})
+	.error(function(data, status, headers, config){
 		console.log(data);
 		console.log(status);
 		console.log(headers);
 		console.log(config);
 		console.log('error');
 	});
+	console.log('read');
 
-}
-$.post('/db/create').success();
-$.post('/db/update').success();
-$.post('/db/delete').success();
+};
+
+var update = function(){
+	$.post('/db/update').success().error();
+	console.log('update');
+
+};
+
+var ddelete = function(){
+	$.post('/db/delete').success().error();
+	console.log('delete');
+
+};
+
+
+
+
+
+
 
 
 
