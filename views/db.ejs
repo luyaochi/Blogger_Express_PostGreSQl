@@ -5,7 +5,7 @@ fadsfdsf<br>
 <%= data %>
 </p>
 
-<button id="creatw">create</button>
+<button id="create">create</button>
 <button id="read">read</button>
 
 <input id="id" type="text" name="id">
@@ -19,21 +19,15 @@ fadsfdsf<br>
 
 <script>
 
-$('#create').click(create());
-$('#read').click(read());
-$('#update').click(update());
-$('#delete').click(ddelete());
+$('#create').click(function(){
 
-
-
-
-
-var create = function(){
 	$.post('/db/create').success().error();
 	console.log('create');
-};
 
-var read = function(){
+});
+
+$('#read').click(function(){
+
 	$.get('/db/read')
 	.success(function(data, status, headers, config){
 		if(data && data.length>1) {
@@ -48,8 +42,7 @@ var read = function(){
 
 			
 		}
-	})
-	.error(function(data, status, headers, config){
+	}).error(function(data, status, headers, config){
 		console.log(data);
 		console.log(status);
 		console.log(headers);
@@ -58,26 +51,21 @@ var read = function(){
 	});
 	console.log('read');
 
-};
+});
 
-var update = function(){
+$('#update').click(function(){
+
 	$.post('/db/update').success().error();
 	console.log('update');
 
-};
+});
 
-var ddelete = function(){
+$('#delete').click(function(){
+
 	$.post('/db/delete').success().error();
 	console.log('delete');
 
-};
-
-
-
-
-
-
-
+});
 
 
 </script>
