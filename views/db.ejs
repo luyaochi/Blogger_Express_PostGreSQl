@@ -21,7 +21,14 @@ fadsfdsf<br>
 
 $('#create').click(function(){
 
-	$.post('/db/create').success().error();
+	$.post('/db/create')
+	.success(function(data, status, headers, config){
+		console.log(data);
+		console.log('create');
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
 	console.log('create');
 
 });
@@ -30,24 +37,11 @@ $('#read').click(function(){
 
 	$.get('/db/read')
 	.success(function(data, status, headers, config){
-		if(data && data.length>1) {
-			sessionService.set('uid',data);
-			$location.path('/receive');
-		}
-		else {
-			$location.path('/');
-			scope.msgtxt = '錯誤的帳號或密碼';
-			console.log(user);
-			console.log(data);
-
-			
-		}
-	}).error(function(data, status, headers, config){
 		console.log(data);
-		console.log(status);
-		console.log(headers);
-		console.log(config);
-		console.log('error');
+		console.log('read');
+
+	}).error(function(status){
+		console.log('error code:' + status);
 	});
 	console.log('read');
 
@@ -55,14 +49,28 @@ $('#read').click(function(){
 
 $('#update').click(function(){
 
-	$.post('/db/update').success().error();
+	$.post('/db/update')
+	.success(function(data, status, headers, config){
+		console.log(data);
+		console.log('create');
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
 	console.log('update');
 
 });
 
 $('#delete').click(function(){
 
-	$.post('/db/delete').success().error();
+	$.post('/db/delete')
+	.success(function(data, status, headers, config){
+		console.log(data);
+		console.log('create');
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
 	console.log('delete');
 
 });
