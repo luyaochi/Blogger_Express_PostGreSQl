@@ -22,7 +22,7 @@ app.get('/db', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.render('db.ejs',{data : a}); 
+        response.render('db.ejs',{'data' : a}); 
       }
     });
   });
