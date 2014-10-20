@@ -44,14 +44,16 @@ app.get('/db2', function (request, response) {
 })
 
 app.post('/db/create', function (request, response) {
+  var a = request.query;
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    //insert into blogger_table  values (1, \"hello database\");
     client.query('SELECT * FROM blogger_table;', function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
        { 
-        var a = result.rows;
+        //var a = result.rows;
         response.send({'data' : a}); 
       }
     });
