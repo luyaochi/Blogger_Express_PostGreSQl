@@ -11,14 +11,12 @@
 <% } %>
 
 
-
-<button id="create">create</button>
-<button id="read">read</button>
-
 <input id="id" type="text" name="id">
 <input id="title"  type="text" name="title">
 <input id="name" type="text" name="name">
 <input id="content" type="text" name="content">
+<hr>
+<button id="insert">insert</button>
 
 <button id="update">update</button>
 
@@ -27,9 +25,9 @@
 <script>
 
 
-$('#create').click(function(){
+$('#insert').click(function(){
 
-	$.post('/db/create')
+	$.post('/db/insert',"{id:data.length, title:'newtitle', name:'lukelu', content:'abc_test'}")
 	.success(function(data, status, headers, config){
 		a = data;
 		console.log(a);
