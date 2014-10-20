@@ -3,12 +3,13 @@ var express = require('express');
 var app = express();
 var pg = require('pg');
 var view = require('fs');
-
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use( bodyParser.urlencoded() ); // to support URL-encoded bodies
 
 app.set('port', (process.env.PORT || 5000))
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'))
-app.use(express.json()); 
 
 
 app.get('/', function(request, response) {
