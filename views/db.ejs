@@ -5,7 +5,15 @@ fadsfdsf<br>
 <%= data %>
 </p>
 <hr>
-<div id="supply_list"></div>
+<div id="supply_list">
+<h1><%= title %></h1>
+<ul>
+<% for(var i=0; i<supplies.length; i++) {%>
+   <li><%= supplies[i] %></li>
+<% } %>
+</ul>
+
+</div>
 <hr>
 <button id="create">create</button>
 <button id="read">read</button>
