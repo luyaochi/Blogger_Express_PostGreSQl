@@ -37,7 +37,7 @@ app.get('/db2', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.render('db.ejs',{'data' : a}); 
+        response.render('db2.ejs',{'data' : a}); 
       }
     });
   });
