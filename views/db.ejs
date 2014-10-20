@@ -1,15 +1,19 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+</script>
 <p>
 fadsfdsf<br>	
 <%= data %>
 </p>
 <hr>
 <div id="supply_list">
-<h1><%= title %></h1>
+<h1><%= my_supplies.title %></h1>
 <ul>
-<% for(var i=0; i<supplies.length; i++) {%>
-   <li><%= supplies[i] %></li>
+<% for(var i=0; i<my_supplies.supplies.length; i++) {%>
+   <li><%= my_supplies.supplies[i] %></li>
 <% } %>
 </ul>
 
