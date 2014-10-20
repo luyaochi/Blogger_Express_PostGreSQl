@@ -49,8 +49,7 @@ app.get('/db2', function (request, response) {
 app.post('/db/insert', function (request, response) {
   var a = request.body;
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    //insert into blogger_table  values (1, \"hello database\");
-    client.query('SELECT * FROM blogger_table;', function(err, result) {
+    client.query('insert into blogger_table  values (' + a + ');', function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
