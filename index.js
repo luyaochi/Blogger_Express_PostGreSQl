@@ -58,7 +58,7 @@ app.post('/db/insert', function (request, response) {
       else
        { 
         //var a = result.rows;
-        response.send({'data' : a.id}); 
+        response.send({'data' : a}); 
       }
     });
   });
