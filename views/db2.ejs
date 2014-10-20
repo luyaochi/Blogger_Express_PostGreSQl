@@ -1,0 +1,77 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<button id="create">create</button>
+<button id="read">read</button>
+
+<input id="id" type="text" name="id">
+<input id="title"  type="text" name="title">
+<input id="name" type="text" name="name">
+<input id="content" type="text" name="content">
+
+<button id="update">update</button>
+
+<button id="delete">delete</button>
+
+<script>
+
+
+$('#create').click(function(){
+
+	$.post('/db/create')
+	.success(function(data, status, headers, config){
+		a = data;
+		console.log(a);
+		console.log('create');
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
+	console.log('create');
+
+});
+
+$('#read').click(function(){
+
+	$.get('/db/read')
+	.success(function(data, status, headers, config){
+		a = data;
+		console.log(a);
+		console.log('read');
+
+	}).error(function(status){
+		console.log('error code:' + status);
+	});
+
+});
+
+$('#update').click(function(){
+
+	$.post('/db/update')
+	.success(function(data, status, headers, config){
+		a = data;
+		console.log(a);
+		console.log('update');
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
+
+});
+
+$('#delete').click(function(){
+
+	$.post('/db/delete')
+	.success(function(data, status, headers, config){
+		a = data;
+		console.log(a);
+		console.log('delete');
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
+
+});
+
+
+</script>

@@ -1,98 +1,10 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-
-</script>
-<p>
-fadsfdsf<br>	
-<%= data %>
-</p>
 <hr>
-<h1>ID:<%= data[0].id %></h1>
-<h1>TITLE:<%= data[0].title %></h1>
-<h1>NAME:<%= data[0].name %></h1>
-<h1>CONTENT:<%= data[0].content %></h1>
+<% for(var i=0; i<data.length; i++) { %>
+<h1>ID:<%= data[i].id %></h1>
+<h1>TITLE:<%= data[i].title %></h1>
+<h1>NAME:<%= data[i].name %></h1>
+<h1>CONTENT:<%= data[i].content %></h1>
+<% } %>
 <hr>
-<h1>ID:<%= data[1].id %></h1>
-<h1>TITLE:<%= data[1].title %></h1>
-<h1>NAME:<%= data[1].name %></h1>
-<h1>CONTENT:<%= data[1].content %></h1>
-<hr>
-<button id="create">create</button>
-<button id="read">read</button>
 
-<input id="id" type="text" name="id">
-<input id="title"  type="text" name="title">
-<input id="name" type="text" name="name">
-<input id="content" type="text" name="content">
-
-<button id="update">update</button>
-
-<button id="delete">delete</button>
-
-<script>
-
-
-var a = '';
-
-
-$('#create').click(function(){
-
-	$.post('/db/create')
-	.success(function(data, status, headers, config){
-		a = data;
-		console.log(a);
-		console.log('create');
-	})
-	.error(function(status){
-		console.log('error code:' + status);
-	});
-	console.log('create');
-
-});
-
-$('#read').click(function(){
-
-	$.get('/db/read')
-	.success(function(data, status, headers, config){
-		a = data;
-		console.log(a);
-		console.log('read');
-
-	}).error(function(status){
-		console.log('error code:' + status);
-	});
-
-});
-
-$('#update').click(function(){
-
-	$.post('/db/update')
-	.success(function(data, status, headers, config){
-		a = data;
-		console.log(a);
-		console.log('update');
-	})
-	.error(function(status){
-		console.log('error code:' + status);
-	});
-
-});
-
-$('#delete').click(function(){
-
-	$.post('/db/delete')
-	.success(function(data, status, headers, config){
-		a = data;
-		console.log(a);
-		console.log('delete');
-	})
-	.error(function(status){
-		console.log('error code:' + status);
-	});
-
-});
-
-
-</script>
