@@ -47,10 +47,11 @@ app.get('/db2', function (request, response) {
 })
 
 app.post('/db/insert', function (request, response) {
-  var a = request.body.data;
-  insert = a.id + ',' + a.title + ',' + a.name +',' + a.content + ',' ;
+  var a = request.body;
+  //insert = a.id + ',' + a.title + ',' + a.name +',' + a.content + ',' ;
+  //insert into blogger_table  values (' + insert + ');
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('insert into blogger_table  values (' + insert + ');', function(err, result) {
+    client.query('SELECT * FROM blogger_table;', function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
