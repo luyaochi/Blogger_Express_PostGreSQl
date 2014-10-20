@@ -39,7 +39,7 @@ app.post('/db/create', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.render('db.ejs',{'data' : a}); 
+        response.send({'data' : a}); 
       }
     });
   });
@@ -56,7 +56,7 @@ app.get('/db/read', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.render('db.ejs',{'data' : a}); 
+        response.send({'data' : a}); 
       }
     });
   });
@@ -73,7 +73,7 @@ app.post('/db/update', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.render('db.ejs',{'data' : a}); 
+        response.send({'data' : a}); 
       }
     });
   });
@@ -90,7 +90,7 @@ app.post('/db/delete', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.render('db.ejs',{'data' : a}); 
+        response.send({'data' : a}); 
       }
     });
   });
