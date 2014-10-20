@@ -18,12 +18,12 @@ fadsfdsf<br>
 <button id="delete">delete</button>
 
 <script>
-
+var a = '';
 $('#create').click(function(){
 
 	$.post('/db/create')
 	.success(function(data, status, headers, config){
-		var a = data
+		var a = data;
 		console.log(a);
 		console.log('create');
 	})
@@ -38,14 +38,13 @@ $('#read').click(function(){
 
 	$.get('/db/read')
 	.success(function(data, status, headers, config){
-		var a = data
+		a = data;
 		console.log(a);
 		console.log('read');
 
 	}).error(function(status){
 		console.log('error code:' + status);
 	});
-	console.log('read');
 
 });
 
@@ -53,14 +52,13 @@ $('#update').click(function(){
 
 	$.post('/db/update')
 	.success(function(data, status, headers, config){
-		var a = data
+		a = data;
 		console.log(a);
-		console.log('create');
+		console.log('update');
 	})
 	.error(function(status){
 		console.log('error code:' + status);
 	});
-	console.log('update');
 
 });
 
@@ -68,14 +66,13 @@ $('#delete').click(function(){
 
 	$.post('/db/delete')
 	.success(function(data, status, headers, config){
-		var a = data
+		a = data;
 		console.log(a);
-		console.log('create');
+		console.log('delete');
 	})
 	.error(function(status){
 		console.log('error code:' + status);
 	});
-	console.log('delete');
 
 });
 
