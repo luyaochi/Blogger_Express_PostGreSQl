@@ -39,7 +39,7 @@ app.post('/db/create', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.send({'data' : a['1']}); 
+        response.send({'data' : a}); 
       }
     });
   });
@@ -55,7 +55,7 @@ app.get('/db/read', function (request, response) {
       else
        { 
         var a = result.rows;
-        response.send({'data' : a['2']}); 
+        response.send({'data' : a}); 
       }
     });
   });
