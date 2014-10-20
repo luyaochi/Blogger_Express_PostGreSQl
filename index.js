@@ -8,6 +8,8 @@ var view = require('fs');
 app.set('port', (process.env.PORT || 5000))
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'))
+app.use(express.json()); 
+
 
 app.get('/', function(request, response) {
   var a = {'title':'titleName','name':'authorName','content':'blog_content','id':1};
