@@ -28,7 +28,7 @@
 
 $('#insert').click(function(){
 
-	$.post('/db/insert',"{id:data.length, title:'newtitle', name:'lukelu', content:'abc_test'}")
+	$.post('/db/insert',{id:data.length, title:'newtitle', name:'lukelu', content:'abc_test'})
 	.success(function(data, status, headers, config){
 		a = data;
 		console.log(a);
