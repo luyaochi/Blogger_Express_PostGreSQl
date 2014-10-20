@@ -23,7 +23,7 @@ $('#create').click(function(){
 
 	$.post('/db/create')
 	.success(function(data, status, headers, config){
-		var a = data;
+		a = data;
 		console.log(a);
 		console.log('create');
 	})
