@@ -31,7 +31,7 @@ app.get('/db', function (request, response) {
 
 
 app.post('/db/create', function (request, response) {
-  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM blogger_table;', function(err, result) {
       done();
       if (err)
@@ -48,7 +48,7 @@ app.post('/db/create', function (request, response) {
 });
 
 app.get('/db/read', function (request, response) {
-  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM blogger_table;', function(err, result) {
       done();
       if (err)
@@ -65,7 +65,7 @@ app.get('/db/read', function (request, response) {
 });
 
 app.post('/db/update', function (request, response) {
-  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM blogger_table;', function(err, result) {
       done();
       if (err)
