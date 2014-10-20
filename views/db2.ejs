@@ -1,6 +1,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
+<hr>
+<% for(var i=0; i<data.length; i++) { %>
+<h1>ID:<%= data[i].id %></h1>
+<h1>TITLE:<%= data[i].title %></h1>
+<h1>NAME:<%= data[i].name %></h1>
+<h1>CONTENT:<%= data[i].content %></h1>
+<hr>
+<% } %>
+<hr>
+
+
 <button id="create">create</button>
 <button id="read">read</button>
 
