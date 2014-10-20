@@ -28,7 +28,6 @@
 
 $('#insert').click(function(){
 	var b = {'id':2, 'title':'newtitle', 'name':'lukelu', 'content':'abc_test'}
-	console.log(b)
 	$.post('/db/insert',b)
 	.success(function(data, status, headers, config){
 		a = data;
