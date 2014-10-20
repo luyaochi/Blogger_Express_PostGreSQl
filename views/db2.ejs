@@ -31,12 +31,11 @@ $('#insert').click(function(){
 	.success(function(data, status, headers, config){
 		a = data;
 		console.log(a);
-		console.log('create');
+		console.log('insert');
 	})
 	.error(function(status){
 		console.log('error code:' + status);
 	});
-	console.log('create');
 
 });
 

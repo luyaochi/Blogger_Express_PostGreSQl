@@ -43,7 +43,7 @@ app.get('/db2', function (request, response) {
   });
 })
 
-app.post('/db/create', function (request, response) {
+app.post('/db/insert', function (request, response) {
   var a = request.query;
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     //insert into blogger_table  values (1, \"hello database\");
