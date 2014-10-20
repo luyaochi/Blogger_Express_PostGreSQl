@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express();
 var pg = require('pg');
-var view = require('fs')
+var view = require('fs');
 
 
 app.set('port', (process.env.PORT || 5000))

@@ -4,7 +4,9 @@
 fadsfdsf<br>	
 <%= data %>
 </p>
-
+<hr>
+<div id="supply_list"></div>
+<hr>
 <button id="create">create</button>
 <button id="read">read</button>
 
@@ -18,7 +20,22 @@ fadsfdsf<br>
 <button id="delete">delete</button>
 
 <script>
+
+var my_supplies = {
+  title: 'Cleaning Supplies',
+  supplies: ['mop', 'broom', 'duster']
+}
+var result = new EJS({url: 'views/supplies.ejs'}).render(my_supplies);
+document.getElementById('supply_list').innerHTML = result;
+
+
+
+
+
+
 var a = '';
+
+
 $('#create').click(function(){
 
 	$.post('/db/create')
