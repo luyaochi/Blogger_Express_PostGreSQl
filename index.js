@@ -43,7 +43,6 @@ app.post('/db/create', function (request, response) {
       }
     });
   });
-  console.log('create');
 
 });
 
@@ -60,7 +59,6 @@ app.get('/db/read', function (request, response) {
       }
     });
   });
-  console.log('read');
 
 });
 
@@ -77,12 +75,11 @@ app.post('/db/update', function (request, response) {
       }
     });
   });
-  console.log('update');
 
 });
 
 app.post('/db/delete', function (request, response) {
-  pg.connect("pg://postgres:@localhost:5432/blogger_table", function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM blogger_table;', function(err, result) {
       done();
       if (err)
@@ -94,7 +91,6 @@ app.post('/db/delete', function (request, response) {
       }
     });
   });
-  console.log('delete');
 
 });
 

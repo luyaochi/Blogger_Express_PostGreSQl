@@ -23,7 +23,8 @@ $('#create').click(function(){
 
 	$.post('/db/create')
 	.success(function(data, status, headers, config){
-		console.log(data);
+		var a = data
+		console.log(a);
 		console.log('create');
 	})
 	.error(function(status){
@@ -37,7 +38,8 @@ $('#read').click(function(){
 
 	$.get('/db/read')
 	.success(function(data, status, headers, config){
-		console.log(data);
+		var a = data
+		console.log(a);
 		console.log('read');
 
 	}).error(function(status){
@@ -51,7 +53,8 @@ $('#update').click(function(){
 
 	$.post('/db/update')
 	.success(function(data, status, headers, config){
-		console.log(data);
+		var a = data
+		console.log(a);
 		console.log('create');
 	})
 	.error(function(status){
@@ -65,7 +68,8 @@ $('#delete').click(function(){
 
 	$.post('/db/delete')
 	.success(function(data, status, headers, config){
-		console.log(data);
+		var a = data
+		console.log(a);
 		console.log('create');
 	})
 	.error(function(status){
