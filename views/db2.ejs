@@ -23,37 +23,67 @@
 <label>content</label>
 <input id="content" type="text" name="content"><br>
 <hr>
-<button id="insert" onclick="StradegyOfRequest('insert')">insert</button>
+<button id="insert">insert</button>
 
-<button id="update" onclick="StradegyOfRequest('update')">update</button>
+<button id="update">update</button>
 
-<button id="delete" onclick="StradegyOfRequest('delete')">delete</button>
+<button id="delete">delete</button>
 
 <script>
 $(document).ready(function(){
 	
-	function StradegyOfRequest(select){
-
-		$('#' + select).click(function(){
-			var data = {'id':getdata('id'), 'title':getdata('title'), 'name':getdata('name'), 'content':getdata('content')}
-			$.post('/db/' + select, b)
-			.success(function(data, status, headers, config){
-				console.log(data);
-			})
-			.error(function(status){
-				console.log('error code:' + status);
-			});
-
-		});
-
-	};
-
-
 	var getdata = function(name){
-		var data = $('#'+name).val();
-		$('#'+name).val('');
-		return	data;
+		return	$('#'+name).val();
 	}; 
+
+	var StradegyOfCRUD = function(Select){};
+
+$('#insert').click(function(){
+	var b = {'id':getdata('id'), 'title':getdata('title'), 'name':getdata('name'), 'content':getdata('content')}
+	$.post('/db/insert',b)
+	.success(function(data, status, headers, config){
+		console.log(data);
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
+
+});
+
+$('#read').click(function(){
+	$.get('/db/read')
+	.success(function(data, status, headers, config){
+		console.log(data);
+	}).error(function(status){
+		console.log('error code:' + status);
+	});
+
+});
+
+$('#update').click(function(){
+	var b = {'title':getdata('title'), 'name':getdata('name'), 'content':getdata('content')};
+
+	$.post('/db/update', b)
+	.success(function(data, status, headers, config){
+		console.log(data);
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
+
+});
+
+$('#delete').click(function(){
+	var b = {'title':getdata('title'), 'name':getdata('name')};
+	$.post('/db/delete',b)
+	.success(function(data, status, headers, config){
+		console.log(data);
+	})
+	.error(function(status){
+		console.log('error code:' + status);
+	});
+
+});
 
 });
 </script>
