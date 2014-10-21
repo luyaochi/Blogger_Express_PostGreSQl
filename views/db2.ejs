@@ -33,13 +33,15 @@
 $(document).ready(function(){
 	
 	var getdata = function(name){
-		return	$('#'+name).val();
+		var data = $('#'+name).val();
+		$('#'+name).val('');
+		return	data;
 	}; 
 
 	var StradegyOfRequest = function(select){
 
 		$('#' + select).click(function(){
-			var b = {'id':getdata('id'), 'title':getdata('title'), 'name':getdata('name'), 'content':getdata('content')}
+			var data = {'id':getdata('id'), 'title':getdata('title'), 'name':getdata('name'), 'content':getdata('content')}
 			$.post('/db/' + select, b)
 			.success(function(data, status, headers, config){
 				console.log(data);
