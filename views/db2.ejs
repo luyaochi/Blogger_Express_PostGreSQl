@@ -70,7 +70,7 @@ $('#update').click(function(){
 
 $('#delete').click(function(){
 
-	$.post('/db/delete')
+	$.post('/db/delete',{'title':'newtitle', 'name':'lukelu'})
 	.success(function(data, status, headers, config){
 		a = data;
 		console.log(a);
