@@ -7,7 +7,7 @@ exports.index = function ( req, res ){
 	      else
 	       { 
 	        var a = result.rows;
-	        response.render('db2.ejs',{'data' : a}); 
+	        response.render('db2',{'data' : a}); 
 	      }
 	    });
 	  });
