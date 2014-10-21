@@ -110,7 +110,7 @@ app.post('/db/delete', function (request, response) {
        { console.error(err); response.send("Error " + err); }
       else
        { 
-        var a = result.rows;
+
         response.send({'data' : a}); 
       }
     });
