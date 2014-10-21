@@ -66,7 +66,7 @@ app.post('/db/insert', function (request, response) {
 
 });
 
-app.get('/db/read', function (request, response) {
+app.post('/db/read', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM blogger_table;', function(err, result) {
       done();
