@@ -101,8 +101,10 @@ app.post('/db/update', function (request, response) {
 });
 
 app.post('/db/delete', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM blogger_table;', function(err, result) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {.
+    var a = request.body;
+    var delete1 = 'DELETE FROM blogger_table  WHERE title = \'' + a.title + '\' AND name = \'' + a.name + '\';';
+    client.query(delete1, function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
