@@ -32,12 +32,6 @@
 <script>
 $(document).ready(function(){
 	
-	var getdata = function(name){
-		var data = $('#'+name).val();
-		$('#'+name).val('');
-		return	data;
-	}; 
-
 	var StradegyOfRequest = function(select){
 
 		$('#' + select).click(function(){
@@ -53,6 +47,13 @@ $(document).ready(function(){
 		});
 
 	};
+
+
+	ar getdata = function(name){
+		var data = $('#'+name).val();
+		$('#'+name).val('');
+		return	data;
+	}; 
 
 });
 </script>
