@@ -84,13 +84,15 @@ app.get('/db/read', function (request, response) {
 
 app.post('/db/update', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM blogger_table;', function(err, result) {
+    var a = request.body;
+    var update = a.title + "\',\'" + a.name + "\',\'" ;
+    update = 'UPDATE blogger_table SET content = \'' + a.content + '\' WHERE title = \'' + a.title + '\' AND name = \'' + a.name + '\';';
+    client.query(update, function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
        { 
-        var a = result.rows;
         response.send({'data' : a}); 
       }
     });

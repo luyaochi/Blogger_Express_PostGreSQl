@@ -56,7 +56,7 @@ $('#read').click(function(){
 
 $('#update').click(function(){
 
-	$.post('/db/update')
+	$.post('/db/update', {'title':'newtitle', 'name':'lukelu', 'content':'update2222'})
 	.success(function(data, status, headers, config){
 		a = data;
 		console.log(a);
