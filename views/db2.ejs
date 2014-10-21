@@ -33,7 +33,9 @@
 $(document).ready(function(){
 	
 	var getdata = function(name){
-		return	$('#'+name).val();
+		var data = $('#'+name).val();
+		$('#'+name).val('');
+		return	data;
 	}; 
 
 	var StradegyOfCRUD = function(Select){};
