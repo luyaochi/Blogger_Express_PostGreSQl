@@ -1,16 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
-<hr>
-<% for(var i=0; i<data.length; i++) { %>
-<h1>ID:<%= data[i].id %></h1>
-<h1>TITLE:<%= data[i].title %></h1>
-<h1>NAME:<%= data[i].name %></h1>
-<h1>CONTENT:<%= data[i].content %></h1>
-<hr>
-<% } %>
-
-
 <label>id</label>
 <input id="id" type="text" name="id"><br>
 
@@ -29,6 +19,9 @@
 
 <button id="delete">delete</button>
 
+
+<button id="a">insert</button>
+
 <script>
 
 var getdata = function(name){
@@ -36,6 +29,12 @@ var getdata = function(name){
 	return	$('#'+name).val();
 } 
 
+$('#a').click(function(){
+	alert(getdata('id'));
+	alert(getdata('title'));
+	alert(getdata('name'));
+	alert(getdata('content'));
+});
 
 $('#insert').click(function(){
 	var b = {'id':getdata('id'), 'title':getdata('title'), 'name':getdata('name'), 'content':getdata('content')}
