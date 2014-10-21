@@ -1,6 +1,5 @@
 
 var express = require('express');
-var routes  = require( './routes' );
 var app = express();
 var pg = require('pg');
 var view = require('fs');
