@@ -23,11 +23,11 @@
 <label>content</label>
 <input id="content" type="text" name="content"><br>
 <hr>
-<button id="insert" onclick="StradegyOfCRUD(\'insert\')">insert</button>
+<button id="insert" onclick="StradegyOfRequest(\'insert\')">insert</button>
 
-<button id="update" onclick="StradegyOfCRUD(\'update\')">update</button>
+<button id="update" onclick="StradegyOfRequest(\'update\')">update</button>
 
-<button id="delete" onclick="StradegyOfCRUD(\'delete\')">delete</button>
+<button id="delete" onclick="StradegyOfRequest(\'delete\')">delete</button>
 
 <script>
 $(document).ready(function(){
@@ -36,7 +36,7 @@ $(document).ready(function(){
 		return	$('#'+name).val();
 	}; 
 
-	var StradegyOfCRUD = function(select){
+	var StradegyOfRequest = function(select){
 
 		$('#' + select).click(function(){
 			var b = {'id':getdata('id'), 'title':getdata('title'), 'name':getdata('name'), 'content':getdata('content')}
